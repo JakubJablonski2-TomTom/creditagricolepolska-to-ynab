@@ -24,7 +24,9 @@ BEGIN {
     Memo = $18
     Amount = $82
 
-    # gsub("a", "_", Memo)
+    sub(/ PLN/, "", Amount)
 
-    print quote(TransactionDate)","quote(Payee)","quote(Memo)","quote(Amount)
+    if (NR > 1) {
+        print quote(TransactionDate)","quote(Payee)","quote(Memo)","quote(Amount)
+    }
 }
